@@ -48,8 +48,8 @@ async def latency_metrics(body: RequestBody):
 
     result = {}
     for region, records in grouped.items():
-        latencies = [r["latency"] for r in records if "latency" in r]
-        uptimes = [r["uptime"] for r in records if "uptime" in r]
+        latencies = [r["latency_ms"] for r in records]
+        uptimes = [r["uptime_pct"] for r in records]
         if not latencies or not uptimes:
             continue
 
